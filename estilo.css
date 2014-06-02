@@ -59,19 +59,6 @@
 	position: absolute;
 	top: -15px;
 	left: 0px;	
-	
-	-webkit-transition-property: left;
-	-webkit-transition-duration: 4s;
-	-webkit-transition-timing-function: ease-in-out;
-	
-	-moz-transition-property: left;
-	-moz-transition-duration: 4s;
-	-moz-transition-timing-function: ease-in-out;
-	
-	transition-property: left;
-	transition-duration: 4s;
-	transition-timing-function: ease-in-out;
-	
 	}
 	
 button#acao{

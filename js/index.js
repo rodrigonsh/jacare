@@ -70,9 +70,6 @@ function movePrecisao(){
 		// matar timeout
 		window.clearInterval(intervaloPrecisao);
 		
-		// reconfigurar tempo da precisao
-		$("#precisao").css("-webkit-transition-duration", (precisao_tempo/1000)+"s");	
-		
 		// setar novo intervalo pa precisao
 		intervaloPrecisao = window.setInterval(movePrecisao, precisao_tempo);		
 		
@@ -80,18 +77,18 @@ function movePrecisao(){
 		
 	if (precisao_direcao == "direita"){
 		precisao_direcao = "esquerda";
-		$("#precisao").css("left", 600);
+		$("#precisao").animate({left: 600}, precisao_tempo);
 		console.log(intervaloPrecisao, "movePrecisao: mover para direita", precisao_tempo);
 		}
 		
 	else{
 		precisao_direcao = "direita";
-		$("#precisao").css("left", 0);
+		$("#precisao").animate({left: 0}, precisao_tempo);
 		console.log(intervaloPrecisao, "movePrecisao: mover para esquerda", precisao_tempo);
 		}	
 	}
 
-$("#acao").click(function(){
+function clica(){
 
 	// verificar posicao da precisao
 	var pos = $("#precisao").position();
@@ -122,7 +119,7 @@ $("#acao").click(function(){
 		
 		}
 
-	})
+	};
  
 var app = {
     // Application Constructor
@@ -131,6 +128,7 @@ var app = {
         mudaNivel();
 		movePrecisao();
 		
+		$("#acao").click(clica);
 		$("#fecha").click(function(ev){ navigator.app.exitApp() });
 
 		intervaloPrecisao = window.setInterval(movePrecisao, precisao_tempo);
