@@ -28,11 +28,13 @@ var mudaPrecisao = false;
 var intervaloPrecisao = 0;
 var intervaloNivel = 0;
 
-
+var au_bicada = null;
+var au_gameover = null;
+var au_bgm = null;
 
 function mudaNivel(){	
 
-	console.log("mudaNivel: invocou...");
+	//console.log("mudaNivel: invocou...");
 
 	if(precisao_tempo > 500){
 		
@@ -45,7 +47,7 @@ function mudaNivel(){
 		
 		precisao_tempo -= 500; 
 		
-		console.log("mudaNivel:", level, precisao_tempo);
+		//console.log("mudaNivel:", level, precisao_tempo);
 
 		// resetar o timer
 		$("#timer").animate({height: 300}, 0);
@@ -53,7 +55,7 @@ function mudaNivel(){
 		
 		}
 		
-		else console.log("mudaPrecisao: não vai mudar precisao");
+		//else //console.log("mudaPrecisao: não vai mudar precisao");
 		
 	}
 	
@@ -65,7 +67,7 @@ function movePrecisao(){
 	
 		mudaPrecisao = false;
 		
-		console.log(intervaloPrecisao, "movePrecisao: matando timeout e resetando...");
+		//console.log(intervaloPrecisao, "movePrecisao: matando timeout e resetando...");
 	
 		// matar timeout
 		window.clearInterval(intervaloPrecisao);
@@ -78,13 +80,13 @@ function movePrecisao(){
 	if (precisao_direcao == "direita"){
 		precisao_direcao = "esquerda";
 		$("#precisao").animate({left: 600}, precisao_tempo);
-		console.log(intervaloPrecisao, "movePrecisao: mover para direita", precisao_tempo);
+		//console.log(intervaloPrecisao, "movePrecisao: mover para direita", precisao_tempo);
 		}
 		
 	else{
 		precisao_direcao = "direita";
 		$("#precisao").animate({left: 0}, precisao_tempo);
-		console.log(intervaloPrecisao, "movePrecisao: mover para esquerda", precisao_tempo);
+		//console.log(intervaloPrecisao, "movePrecisao: mover para esquerda", precisao_tempo);
 		}	
 	}
 
@@ -99,7 +101,9 @@ function clica(){
 		score++;
 		//seta o texto do score
 		$("#score span").html(score);
-		 
+		
+		au_bicada.play();
+		
 		$("#palco").addClass("bicando");
 		
 		window.setTimeout(function(){
@@ -110,7 +114,10 @@ function clica(){
 	
 	// caso contrario cena 3
 	else{
+		
+		au_gameover.play();
 		$("#palco").addClass("morto");
+				
 		window.setTimeout(function(){
 			alert("Game Over!");
 			location.reload();
@@ -124,6 +131,12 @@ function clica(){
 var app = {
     // Application Constructor
     initialize: function() {
+	
+		au_bicada = new Howl({urls: ['bicada.mp3']});
+		au_gameover = new Howl({urls: ['gameover.mp3']});
+		au_bgm = new Howl({urls: ['pantanal2.mp3']});
+
+		au_bgm.play();
 	
         mudaNivel();
 		movePrecisao();
@@ -150,7 +163,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         
-        console.log("Device ready")
+        //console.log("Device ready")
         
     },
     
