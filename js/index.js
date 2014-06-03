@@ -132,9 +132,9 @@ var app = {
     // Application Constructor
     initialize: function() {
 	
-		au_bicada = new Howl({urls: ['bicada.mp3']});
-		au_gameover = new Howl({urls: ['gameover.mp3']});
-		au_bgm = new Howl({urls: ['pantanal2.mp3']});
+		au_bicada = new Howl({urls: ['bicada.mp3', 'bicada.ogg', 'bicada.wav']});
+		au_gameover = new Howl({urls: ['gameover.mp3', 'gameover.ogg', 'gameover.wav']});
+		au_bgm = new Howl({urls: ['pantanal2.mp3', 'pantanal2.ogg', 'pantanal2.wav']});
 
 		au_bgm.play();
 	
