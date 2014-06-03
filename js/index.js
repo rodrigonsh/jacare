@@ -28,10 +28,6 @@ var mudaPrecisao = false;
 var intervaloPrecisao = 0;
 var intervaloNivel = 0;
 
-var au_bicada = null;
-var au_gameover = null;
-var au_bgm = null;
-
 function mudaNivel(){	
 
 	//console.log("mudaNivel: invocou...");
@@ -102,7 +98,7 @@ function clica(){
 		//seta o texto do score
 		$("#score span").html(score);
 		
-		au_bicada.play();
+		PGLowLatencyAudio.loop('bicada');
 		
 		$("#palco").addClass("bicando");
 		
@@ -115,7 +111,8 @@ function clica(){
 	// caso contrario cena 3
 	else{
 		
-		au_gameover.play();
+		PGLowLatencyAudio.loop('gameover');
+		
 		$("#palco").addClass("morto");
 				
 		window.setTimeout(function(){
@@ -131,14 +128,14 @@ function clica(){
 var app = {
     // Application Constructor
     initialize: function() {
+    	
+    		PGLowLatencyAudio.preloadAudio('bicada', 'bicada.mp3', 1);
+    		PGLowLatencyAudio.preloadAudio('gameover', 'gameover.mp3', 1);
+    		PGLowLatencyAudio.preloadAudio('pantanal', 'pantanal2.mp3', 1);
 	
-		au_bicada = new Howl({urls: ['bicada.mp3', 'bicada.ogg', 'bicada.wav']});
-		au_gameover = new Howl({urls: ['gameover.mp3', 'gameover.ogg', 'gameover.wav']});
-		au_bgm = new Howl({urls: ['pantanal2.mp3', 'pantanal2.ogg', 'pantanal2.wav']});
-
-		au_bgm.play();
+		PGLowLatencyAudio.loop('pantanal');
 	
-        mudaNivel();
+        	mudaNivel();
 		movePrecisao();
 		
 		$("#acao").click(clica);
