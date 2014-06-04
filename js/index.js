@@ -139,8 +139,8 @@ var app = {
         	mudaNivel();
 		movePrecisao();
 		
-		$("#acao").click(clica);
-		$("#fecha").click(function(ev){ navigator.app.exitApp() });
+		$("#acao").bind('touchstart', clica);
+		$("#fecha").bind('touchstart', function(ev){ navigator.app.exitApp() });
 
 		intervaloPrecisao = window.setInterval(movePrecisao, precisao_tempo);
 		intervaloNivel = window.setInterval(mudaNivel, 20000);
