@@ -142,7 +142,12 @@ var app = {
 		movePrecisao();
 		
 		$("#acao").bind('touchstart', clica);
-		$("#fecha").bind('touchstart', function(ev){ navigator.app.exitApp() });
+		$("#fecha").bind('touchstart', function(ev){
+			
+			window.plugins.LowLatencyAudio.stop('pantanal');
+			navigator.app.exitApp()
+			
+			});
 
 		intervaloPrecisao = window.setInterval(movePrecisao, precisao_tempo);
 		intervaloNivel = window.setInterval(mudaNivel, 20000);
@@ -156,6 +161,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('pause', this.onPause, false);
     },
     // deviceready Event Handler
     //
@@ -166,5 +172,9 @@ var app = {
         //console.log("Device ready")
         
     },
+    
+    onPause: function(){
+    	window.plugins.LowLatencyAudio.stop('pantanal');
+    }
     
 };
