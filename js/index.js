@@ -117,6 +117,11 @@ function clica(){
 				
 		window.setTimeout(function(){
 			alert("Game Over!");
+			
+			window.plugins.LowLatencyAudio.unload('bicada');
+			window.plugins.LowLatencyAudio.unload('gameover');
+			window.plugins.LowLatencyAudio.unload('pantanal');
+			
 			location.reload();
 			}, 1000)
 		
