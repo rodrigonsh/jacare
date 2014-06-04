@@ -130,11 +130,11 @@ var app = {
     // Application Constructor
     initialize: function() {
     	
-    		window.plugins.LowLatencyAudio.preloadFX('bicada', 'bicada.mp3', 1);
-    		window.plugins.LowLatencyAudio.preloadFX('gameover', 'gameover.mp3', 1);
+    		window.plugins.LowLatencyAudio.preloadFX('bicada', 'bicada.mp3');
+    		window.plugins.LowLatencyAudio.preloadFX('gameover', 'gameover.mp3');
     		window.plugins.LowLatencyAudio.preloadAudio('pantanal', 'pantanal2.mp3', 1);
 	
-		window.plugins.LowLatencyAudio.loop('pantanal');
+		window.plugins.LowLatencyAudio.play('pantanal');
 	
         	mudaNivel();
 		movePrecisao();
