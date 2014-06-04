@@ -98,7 +98,7 @@ function clica(){
 		//seta o texto do score
 		$("#score span").html(score);
 		
-		LowLatencyAudio.loop('bicada');
+		window.plugins.LowLatencyAudio.play('bicada');
 		
 		$("#palco").addClass("bicando");
 		
@@ -111,7 +111,7 @@ function clica(){
 	// caso contrario cena 3
 	else{
 		
-		LowLatencyAudio.loop('gameover');
+		window.plugins.LowLatencyAudio.play('gameover');
 		
 		$("#palco").addClass("morto");
 				
@@ -129,11 +129,11 @@ var app = {
     // Application Constructor
     initialize: function() {
     	
-    		LowLatencyAudio.preloadFX('bicada', 'bicada.mp3', 1);
-    		LowLatencyAudio.preloadFX('gameover', 'gameover.mp3', 1);
-    		LowLatencyAudio.preloadAudio('pantanal', 'pantanal2.mp3', 1);
+    		window.plugins.LowLatencyAudio.preloadFX('bicada', 'bicada.mp3', 1);
+    		window.plugins.LowLatencyAudio.preloadFX('gameover', 'gameover.mp3', 1);
+    		window.plugins.LowLatencyAudio.preloadAudio('pantanal', 'pantanal2.mp3', 1);
 	
-		LowLatencyAudio.loop('pantanal');
+		window.plugins.LowLatencyAudio.loop('pantanal');
 	
         	mudaNivel();
 		movePrecisao();
