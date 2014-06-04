@@ -132,9 +132,11 @@ var app = {
     	
     		window.plugins.LowLatencyAudio.preloadFX('bicada', 'bicada.mp3');
     		window.plugins.LowLatencyAudio.preloadFX('gameover', 'gameover.mp3');
-    		window.plugins.LowLatencyAudio.preloadAudio('pantanal', 'pantanal2.mp3', 1);
+    		window.plugins.LowLatencyAudio.preloadAudio('pantanal', 'pantanal2.mp3', 1, function(){ 
+    			window.plugins.LowLatencyAudio.play('pantanal');
+    			});
 	
-		window.plugins.LowLatencyAudio.play('pantanal');
+		
 	
         	mudaNivel();
 		movePrecisao();
