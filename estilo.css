@@ -74,6 +74,10 @@ body{ background: #9ac4f7; }
 	top: -15px;
 	left: 0px;	
 	outline: 2px solid black;
+	
+	-webkit-transform: translate3d(0, 0, 0);
+    	transform: translate3d(0, 0, 0);
+	
 	}
 	
 img#acao{
