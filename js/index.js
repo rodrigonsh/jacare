@@ -98,7 +98,7 @@ function clica(){
 		//seta o texto do score
 		$("#score span").html(score);
 		
-		PGLowLatencyAudio.loop('bicada');
+		LowLatencyAudio.loop('bicada');
 		
 		$("#palco").addClass("bicando");
 		
@@ -111,7 +111,7 @@ function clica(){
 	// caso contrario cena 3
 	else{
 		
-		PGLowLatencyAudio.loop('gameover');
+		LowLatencyAudio.loop('gameover');
 		
 		$("#palco").addClass("morto");
 				
@@ -129,11 +129,11 @@ var app = {
     // Application Constructor
     initialize: function() {
     	
-    		PGLowLatencyAudio.preloadAudio('bicada', 'bicada.mp3', 1);
-    		PGLowLatencyAudio.preloadAudio('gameover', 'gameover.mp3', 1);
-    		PGLowLatencyAudio.preloadAudio('pantanal', 'pantanal2.mp3', 1);
+    		LowLatencyAudio.preloadFX('bicada', 'bicada.mp3', 1);
+    		LowLatencyAudio.preloadFX('gameover', 'gameover.mp3', 1);
+    		LowLatencyAudio.preloadAudio('pantanal', 'pantanal2.mp3', 1);
 	
-		PGLowLatencyAudio.loop('pantanal');
+		LowLatencyAudio.loop('pantanal');
 	
         	mudaNivel();
 		movePrecisao();
