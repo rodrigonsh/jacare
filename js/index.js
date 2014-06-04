@@ -77,7 +77,7 @@ function movePrecisao(){
 		
 	else{
 		precisao_direcao = "direita";
-		$("#precisao").transition({x: '-600px'}, precisao_tempo, 'ease');
+		$("#precisao").transition({x: '0px'}, precisao_tempo, 'ease');
 		//console.log(intervaloPrecisao, "movePrecisao: mover para esquerda", precisao_tempo);
 		}	
 	}
