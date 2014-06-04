@@ -45,10 +45,6 @@ function mudaNivel(){
 		
 		//console.log("mudaNivel:", level, precisao_tempo);
 
-		// resetar o timer
-		$("#timer").animate({height: 300}, 0);
-		$("#timer").animate({height: 0}, 20000, 'linear');
-		
 		}
 		
 		//else //console.log("mudaPrecisao: não vai mudar precisao");
