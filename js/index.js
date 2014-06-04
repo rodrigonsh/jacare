@@ -75,13 +75,13 @@ function movePrecisao(){
 		
 	if (precisao_direcao == "direita"){
 		precisao_direcao = "esquerda";
-		$("#precisao").animate({left: 600}, precisao_tempo);
+		$("#precisao").transition({x: '600px'}, precisao_tempo, 'ease');
 		//console.log(intervaloPrecisao, "movePrecisao: mover para direita", precisao_tempo);
 		}
 		
 	else{
 		precisao_direcao = "direita";
-		$("#precisao").animate({left: 0}, precisao_tempo);
+		$("#precisao").transition({x: '-600px'}, precisao_tempo, 'ease');
 		//console.log(intervaloPrecisao, "movePrecisao: mover para esquerda", precisao_tempo);
 		}	
 	}
